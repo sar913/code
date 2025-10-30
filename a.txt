@@ -1,0 +1,523 @@
+// Program to implement Selection sort
+#include<stdio.h>
+Void main()
+{
+Int arr[20],n,I,j,min_indx,temp;
+Printf(“Enter size of the array: “);
+Scanf(“%d”,&n);
+Printf(“Enter %d elements: “,n);
+For(i=0;i<n;i++)
+Scanf(“%d”,&arr[i]);
+For (I = 0; I < n; i++)
+{
+// Find the minimum element in unsorted array
+Min_indx = I;
+For (j = i+1; j < n; j++)
+If (arr[j] < arr[min_indx])
+Min_indx = j;
+// Swap the found minimum element with the ith element
+Temp=arr[min_indx];
+Arr[min_indx]=arr[i];
+Arr[i]=temp;
+}
+Printf(“\n Sorted array is “);
+For(i=0;i<n;i++)
+Printf(“ %d”,arr[i]);
+}
+
+// Program to implement Insertion sort
+#include<stdio.h>
+Void main()
+{
+Int arr[20],n,I,j,key;
+Printf(“Enter size of the array: “);
+Scanf(“%d”,&n);
+Printf(“Enter %d elements: “,n);
+For(i=0;i<n;i++)
+Scanf(“%d”,&arr[i]);
+For (int I = 1; I < n; i++)
+{
+Key = arr[i];
+J = I – 1;
+While (j >= 0 && arr[j] > key)
+{
+Arr[j + 1] = arr[j];
+J = j – 1;
+}
+Arr[j + 1] = key;
+}
+Printf(“\n Sorted array is “);
+For(i=0;i<n;i++)
+Printf(“ %d”,arr[i]);
+}
+
+// Program to implement Merge Sort
+#include <stdio.h>
+// Function declarations
+Void mergesort(int a[], int low, int high);
+Void combine(int a[], int low, int mid, int high);
+Void mergesort(int a[], int low, int high)
+{
+Int mid;
+If (low < high)
+{
+Mid = (low + high) / 2;
+Mergesort(a, low, mid);
+Mergesort(a, mid + 1, high);
+Combine(a, low, mid, high);
+}
+}
+Void combine(int a[], int low, int mid, int high)
+{
+Int I = low, j = mid + 1, k = low;
+Int temp[50]; // increased size to avoid overflow
+While (I <= mid && j <= high)
+{
+If (a[i] < a[j])
+Temp[k++] = a[i++];
+Else
+Temp[k++] = a[j++];
+}
+While (I <= mid)
+Temp[k++] = a[i++];
+While (j <= high)
+Temp[k++] = a[j++];
+For (I = low; I <= high; i++)
+A[i] = temp[i];
+}
+Int main()
+{
+Int a[50], n, I;
+
+Printf(“\nEnter number of elements: “);
+Scanf(“%d”, &n);
+Printf(“Enter the elements:\n”);
+For (I = 0; I < n; i++)
+Scanf(“%d”, &a[i]);
+Mergesort(a, 0, n – 1);
+Printf(“\nSorted array is:\n”);
+For (I = 0; I < n; i++)
+Printf(“%d “, a[i]);
+Return 0;
+}
+// Program to implement Quick sort
+#include<stdio.h>
+Void quicksort(int [10],int,int);
+Void main()
+{
+Int a[20],n,I;
+Printf(“Enter size of the array: “);
+Scanf(“%d”,&n);
+Printf(“Enter %d elements: “,n);
+For(i=0;i<n;i++)
+Scanf(“%d”,&a[i]);
+Quicksort(a,0,n-1);
+Printf(“Sorted elements: “);
+For(i=0;i<n;i++)
+Printf(“%d “,a[i]);
+}
+
+Void quicksort(int a[10],int first,int last)
+{
+Int pivot,j,temp,I;
+If(first<last)
+{
+Pivot=first;
+I=first;
+J=last;
+While(i<j)
+{
+While(a[i]<=a[pivot]&&i<last)
+I++;
+While(a[j]>a[pivot]&&j>first)
+j--;
+if(i<j)
+{
+Temp=a[i];
+A[i]=a[j];
+A[j]=temp;
+}
+}
+Temp=a[pivot];
+A[pivot]=a[j];
+A[j]=temp;
+
+Quicksort(a,first,j-1);
+Quicksort(a,j+1,last);
+}
+}
+
+/* Program to implement Binary Search */
+#include <stdio.h>
+Int main()
+{
+Int a[50], n, I, first, last, middle, search;
+Printf(“Enter number of elements: “);
+Scanf(“%d”, &n);
+Printf(“Enter the elements in sorted order:\n”);
+For (I = 0; I < n; i++)
+Scanf(“%d”, &a[i]);
+Printf(“Enter element to be searched: “);
+Scanf(“%d”, &search);
+First = 0;
+Last = n – 1;
+Middle = (first + last) / 2;
+While (first <= last)
+{
+If (a[middle] == search)
+{
+Printf(“\nElement found at position %d\n”, middle + 1);
+Return 0;
+}
+Else if (a[middle] < search)
+First = middle + 1;
+Else
+Last = middle – 1;
+Middle = (first + last) / 2;
+}
+Printf(“\nElement not found\n”);
+Return 0;
+}
+
+// Online C compiler to run C program online
+// Program for Strassen’s matrix multiplication
+#include<stdio.h>
+Void main()
+{
+Int Z[2][2];
+Int I, j;
+Int A,B,C,D,E,F,G,H;
+Int p1, p2, p3, p4 , p5, p6, p7;
+Int c1, c2, c3, c4;
+Int X[2][2] = { {1, 2},
+{3, 4} };
+Int Y[2][2] = { {5, 6},
+{7, 8} };
+Printf(“The first matrix is: “);
+For(I = 0; I < 2; i++)
+{
+Printf(“\n”);
+For(j = 0; j < 2; j++)
+Printf(“%d\t”, X[i][j]);
+}
+Printf(“\nThe second matrix is: “);
+For(I = 0; I < 2; i++)
+{
+Printf(“\n”);
+For(j = 0; j < 2; j++)
+Printf(“%d\t”, Y[i][j]);
+}
+A=X[0][0];
+B=X[0][1];
+C=X[1][0];
+D=X[1][1];
+E=Y[0][0];
+F=Y[0][1];
+G=Y[1][0];
+H=Y[1][1];
+
+P1 = A*(F-H);
+P2 = H*(A+B);
+P3 = E*(C+D);
+P4 = D*(G-E);
+P5 = (A+D)*(E+H);
+P6 = (B-D)*(G+H);
+P7 = (A-C)*(E+F);
+C1 = p4+p5+p6-p2;
+C2 = p1+p2;
+C3 = p3+p4;
+C4 = p1-p3+p5-p7;
+Z[0][0]=c1;
+Z[0][1]=c2;
+Z[1][0]=c3;
+Z[1][1]=c4;
+Printf(“\nProduct achieved using Strassen’s algorithm: “);
+For(I = 0; I < 2 ; i++)
+{
+Printf(“\n”);
+For(j = 0; j < 2; j++)
+Printf(“%d\t”, Z[i][j]);
+}
+}
+
+// Program to implement Fractional Knapsack
+#include <stdio.h>
+Int main()
+{
+Float weight[20], profit[20], capacity;
+Int n, I, j;
+Float ratio[20], fract, tp = 0, temp;
+Printf(“\nEnter the capacity of knapsack: “);
+Scanf(“%f”, &capacity);
+Printf(“\nEnter the number of items: “);
+Scanf(“%d”, &n);
+Printf(“\nEnter the weights and profits of each item:\n”);
+For (I = 0; I < n; i++)
+Scanf(“%f %f”, &weight[i], &profit[i]);
+// Calculate profit/weight ratio
+For (I = 0; I < n; i++)
+Ratio[i] = profit[i] / weight[i];
+
+// Sort by ratio in descending order
+For (I = 0; I < n – 1; i++)
+{
+For (j = I + 1; j < n; j++)
+{
+If (ratio[i] < ratio[j])
+{
+Temp = ratio[i];
+Ratio[i] = ratio[j];
+Ratio[j] = temp;
+Temp = weight[i];
+Weight[i] = weight[j];
+Weight[j] = temp;
+Temp = profit[i];
+Profit[i] = profit[j];
+Profit[j] = temp;
+}
+}
+}
+// Select items
+For (I = 0; I < n; i++)
+{
+If (weight[i] <= capacity)
+{
+Tp += profit[i];
+Capacity -= weight[i];
+}
+Else
+{
+Fract = capacity / weight[i];
+Tp += profit[i] * fract;
+Break;
+}
+}
+Printf(“\nMaximum profit is: %.2f\n”, tp);
+Return 0;
+}
+
+// Program to find all pair shortest path using Floyd-Warshall algorithm
+#include <stdio.h>
+#define n 4
+#define INF 999
+Int main()
+{
+Int A[n][n] = {{0, 5, 9, INF},
+{INF, 0, 1, INF},
+{INF, INF, 0, 2},
+{INF, 3, INF, 0}};
+Int I, j, k;
+For (k = 0; k < n; k++)
+{
+For (I = 0; I < n; i++)
+{
+For (j = 0; j < n; j++)
+{
+If (A[i][k] + A[k][j] < A[i][j])
+A[i][j] = A[i][k] + A[k][j];
+}
+}
+}
+Printf(“\n The shortest distances from every pair of vertices are:\n”);
+For (I = 0; I < n; i++)
+
+{
+For (j = 0; j < n; j++)
+{
+If (A[i][j] == INF)
+Printf(“%s\t”, “INF”);
+Else
+Printf(“%d\t”, A[i][j]);
+}
+Printf(“\n”);
+}
+}
+
+// Program to Find the longest common subsequence
+#include<stdio.h>
+#include<string.h>
+
+Char x[20], y[20], b[20][20];
+Void print_lcs(int I, int j)
+{
+If(i==0 || j==0)
+
+Return;
+If(b[i][j]==’c’)
+{
+Print_lcs(i-1,j-1);
+Printf(“%c”,x[i-1]);
+}
+Else if(b[i][j]==’u’)
+Print_lcs(i-1,j);
+Else
+Print_lcs(I,j-1);
+}
+
+Void main()
+{
+Int I,j,m,n,c[20][20];
+
+Printf(“\nEnter the 1st sequence: “);
+Scanf(“%s”,x);
+Printf(“\nEnter the 2nd sequence: “);
+Scanf(“%s”,y);
+Printf(“\nThe Longest Common Subsequence is “);
+M=strlen(x);
+N=strlen(y);
+For(i=0;i<=m;i++)
+C[i][0]=0;
+
+For(i=0;i<=n;i++)
+C[0][i]=0;
+
+//c, u and l denotes cross, upward and leftward directions respectively
+For(i=1;i<=m;i++)
+{
+For(j=1;j<=n;j++)
+{
+If(x[i-1]==y[j-1])
+{
+C[i][j]=c[i-1][j-1]+1;
+B[i][j]=’c’;
+}
+Else if(c[i-1][j]>=c[i][j-1])
+{
+C[i][j]=c[i-1][j];
+B[i][j]=’u’;
+}
+Else
+{
+C[i][j]=c[i][j-1];
+B[i][j]=’l’;
+}
+}
+
+}
+Print_lcs(m,n);
+}
+
+// Program to implement Graph Coloring using Backtracking
+#include<stdio.h>
+Static int m, n, c=0, count=0;
+Int g[50][50], x[50];
+Void nextValue(int k);
+Void GraphColoring(int k);
+Void main()
+{
+Int I, j, temp;
+Printf(“\nEnter the number of nodes: “ );
+Scanf(“%d”, &n);
+Printf(“\nEnter Adjacency Matrix:\n”);
+For(i=1;i<=n;i++)
+{
+For(j=1;j<=n;j++)
+
+Scanf(“%d”, &g[i][j]);
+}
+Printf(“\nPossible Solutions are\n”);
+For(m=1;m<=n;m++)
+{
+If(c==1)
+Break;
+GraphColoring(1);
+}
+Printf(“\nThe chromatic number is %d”, m-1);
+//in for loop, m gets incremented first and then the condition is checked
+//so it is m minus 1
+Printf(“\nThe total number of solutions is %d”, count);
+}
+Void GraphColoring(int k)
+{
+Int I;
+While(1)
+{
+nextValue(k);
+if(x[k]==0)
+return;
+if(k==n)
+{
+
+C=1;
+For(i=1;i<=n;i++)
+Printf(“%d “, x[i]);
+Count++;
+Printf(“\n”);
+}
+Else
+GraphColoring(k+1);
+}
+}
+Void nextValue(int k)
+{
+Int j;
+While(1)
+{
+X[k]=(x[k]+1)%(m+1);
+If(x[k]==0)
+Return;
+For(j=1;j<=n;j++)
+{
+If(g[k][j]==1&&x[k]==x[j])
+Break;
+}
+If(j==(n+1))
+Return;
+
+}
+}
+
+// Program to implement Rabin Karp algorithm */
+#include<stdio.h>
+#include<string.h>
+Void main ()
+{
+Char txt[80], pat[80], flag=0;
+Int q = 101; // prime number
+Int d = 256;
+Printf (“Enter the text string \n”);
+Scanf (“%s”, txt);
+Printf (“Enter the pattern to be searched \n”);
+Scanf (“%s”, pat);
+Int M = strlen(txt);
+Int N = strlen (pat);
+Int I, j;
+Int p = 0; // hash value for pattern
+Int t = 0; // hash value for text
+Int h = 1;
+
+For (I = 0; I < N – 1; i++)
+H = (h * d) % q;
+For (I = 0; I < N; i++)
+{
+P = (d * p + pat[i]) % q;
+T = (d * t + txt[i]) % q;
+}
+For (I = 0; I <= M – N; i++)
+{
+If (p == t)
+{
+For (j = 0; j < N; j++)
+{
+If (txt[I + j] != pat[j])
+Break;
+}
+If (j == N)
+{
+Printf (“Pattern found at index %d \n”, i);
+Flag=1;
+}
+}
+If (I < M – N)
+{
+
+T = (d * (t – txt[i] * h) + txt[I + N]) % q;
+If (t < 0)
+T = (t + q);
+}
+}
+If (flag==0)
+Printf(“\n Pattern not found\n”);
+}
+
+
